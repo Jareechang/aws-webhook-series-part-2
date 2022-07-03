@@ -27,10 +27,10 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
-            role-to-assume: "arn:aws:iam::821203967627:role/github-actions"
+            role-to-assume: "<your-role>"
             aws-region: "us-east-1"
       - run: MODULE="@function/ingestion" ./scripts/deployment.sh
         env:
           AWS_LAMBDA_FUNCTION_NAME: "Ingestion-function"
           AWS_LAMBDA_ALIAS_NAME: "ingestion-dev"
-          AWS_S3_BUCKET: "lambda-bucket-assets-1234567"
+          AWS_S3_BUCKET: "<your-s3-bucket>"
