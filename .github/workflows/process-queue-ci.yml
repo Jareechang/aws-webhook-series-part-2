@@ -1,0 +1,36 @@
+name: lambda-process-queue-ci
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - functions/process-queue/**
+      - .github/**
+      - scripts/**
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure
+        uses: actions/checkout@v2
+      - uses: pnpm/action-setup@646cdf48217256a3d0b80361c5a50727664284f2
+        with:
+          version: 6.10.0
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+            role-to-assume: "arn:aws:iam::821203967627:role/github-actions"
+            aws-region: "us-east-1"
+      - run: MODULE="@function/process-queue" ./scripts/deployment.sh
+        env:
+          AWS_LAMBDA_FUNCTION_NAME: "Process-Queue-function"
+          AWS_LAMBDA_ALIAS_NAME: "process-queue-dev"
+          AWS_S3_BUCKET: "lambda-bucket-assets-1234567"

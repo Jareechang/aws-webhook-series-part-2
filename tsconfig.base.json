@@ -1,0 +1,16 @@
+{
+  "extends": "./node_modules/@common-web/ts-config/tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es6",
+    "noEmit": true,
+    "moduleResolution": "node"
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./global.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

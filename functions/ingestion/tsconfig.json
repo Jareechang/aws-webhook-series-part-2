@@ -1,0 +1,17 @@
+{
+  "extends": "../..//tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es6",
+    "paths": {
+      "@app/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./global.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

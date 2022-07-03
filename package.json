@@ -1,0 +1,11 @@
+{
+	"devDependencies": {
+		"@common-web/esbuild": "^1.0.25",
+		"@common-web/ts-config": "^1.0.1",
+		"aws-sdk": "^2.1116.0",
+		"uuid": "^8.3.2"
+	},
+	"dependencies": {
+		"esbuild": "^0.14.36"
+	}
+}
