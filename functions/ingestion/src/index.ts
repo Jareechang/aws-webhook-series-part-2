@@ -1,7 +1,7 @@
 import {
   APIGatewayProxyEvent,
   APIGatewayProxyResult
-} from 'aws-sdk';
+} from 'aws-lambda';
 
 // Default starter
 export const handler = async(
