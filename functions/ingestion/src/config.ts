@@ -13,4 +13,11 @@ export default {
       defaultRegion: process.env.DefaultRegion ?? 'us-east-1',
     }
   },
+  webhook: {
+    signature: {
+      secret: process.env.WEBHOOK_SIGNATURE_SECRET ?? '',
+      algo: process.env.WEBHOOK_SIGNATURE_ALGO ?? 'sha256',
+      header: process.env.WEBHOOK_SIGNATURE_HEADER ?? 'x-hub-signature-256',
+    }
+  }
 };
