@@ -15,6 +15,11 @@ jest.mock('@app/config', () => ({
 }))
 
 describe('lambda.handler', () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+    jest.clearAllMocks();
+  });
+
   it('should return with 200 with the default message', async() => {
     // @ts-ignore
     await expect(handler(mockEvent))
@@ -22,7 +27,7 @@ describe('lambda.handler', () => {
       .toEqual({
         statusCode: 200,
         body: expect.stringMatching(
-          'default message from ingestion'
+          'success'
         )
       });
   });

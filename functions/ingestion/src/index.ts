@@ -11,11 +11,10 @@ export const handler = async(
     messages: 'Changed from deployment webhook part 2',
     event,
   }, null, 4));
-  let responseMessage = 'default message from ingestion 1';
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: responseMessage,
+      message: 'success',
     }),
   }
 }
